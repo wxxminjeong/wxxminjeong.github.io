@@ -1,0 +1,3 @@
+{%- assign _days = "일,월,화,수,목,금,토" | split: "," -%}
+{%- assign _wd = include.date | date: "%w" | plus: 0 -%}
+{{- include.date | date: "%Y년 %-m월 %-d일" }} ({{ _days[_wd] }})

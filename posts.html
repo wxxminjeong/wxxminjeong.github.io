@@ -2,10 +2,16 @@
 title: 글 목록
 permalink: /posts/
 ---
-{%- capture window_title %}글 목록 - 전체 {{ site.posts.size }}개{% endcapture -%}
-<section class="win">
-  {% include titlebar.html title=window_title %}
-  <div class="win-body">
-    {% include board.html posts=site.posts %}
-  </div>
-</section>
+<h1>글 목록</h1>
+<p>지금까지 쓴 글은 모두 {{ site.posts.size }}개입니다.</p>
+
+{%- assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+{%- for year in years %}
+
+<h2>{{ year.name }}년</h2>
+<ul>
+{%- for post in year.items %}
+<li><tt>{{ post.date | date: "%m/%d" }}</tt> &nbsp;<a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>{% include new.html date=post.date %}
+{%- endfor %}
+</ul>
+{%- endfor %}

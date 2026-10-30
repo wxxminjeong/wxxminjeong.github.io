@@ -1,47 +1,36 @@
 # ==========================================================
-#  wxxminjeong의 개발 홈페이지 - 사이트 설정
-#  이 파일을 고친 뒤에는 로컬 서버(jekyll serve)를 다시 켜야 반영됩니다.
+#  사이트 설정
+#  고친 뒤에는 로컬 서버(jekyll serve)를 다시 켜야 반영됩니다.
 # ==========================================================
 
 title: wxxminjeong의 개발 홈페이지
-subtitle: "~*~ Welcome to my Homepage!! ~*~"
-description: 공부한 것, 만든 것, 삽질한 것을 기록하는 개발 블로그입니다.
+description: 공부한 것, 만든 것, 삽질한 것을 적어두는 곳입니다.
 author: wxxminjeong
+github_username: wxxminjeong
 url: https://wxxminjeong.github.io
 baseurl: ""
 lang: ko_KR
 timezone: Asia/Seoul
-
-# 상단에 흘러가는 전광판 문구
-marquee: "★☆★ 제 홈페이지에 오신 것을 환영합니다!! ★☆★ 공부한 것들을 하나씩 기록하는 공간입니다 ★☆★ 방명록에 흔적 남겨주세요~ ★☆★"
-
-# 사이드바 링크 (label, url)
-links:
-  - label: GitHub
-    url: https://github.com/wxxminjeong
 
 # 방명록은 이 저장소의 GitHub Issues를 사용합니다
 guestbook:
   repo: wxxminjeong/wxxminjeong.github.io
   title_prefix: "[방명록]"
 
-# 마우스를 따라다니는 반짝이 (true / false)
-sparkles: true
-
-# 이 기간(일) 안에 쓴 글에는 NEW! 표시가 붙습니다
+# 이 기간(일) 안에 쓴 글에는 NEW 표시가 붙습니다
 new_days: 14
 
 # ----------------------------------------------------------
 #  빌드 설정 (보통은 건드리지 않아도 됩니다)
 # ----------------------------------------------------------
-theme: null   # GitHub Pages 기본 테마(primer)를 끄고 직접 만든 디자인만 사용
+theme: null   # GitHub Pages 기본 테마(primer)를 끄고 직접 만든 레이아웃만 사용
 permalink: /:year/:month/:day/:title/
 markdown: kramdown
-highlighter: rouge
 kramdown:
   input: GFM
   hard_wrap: false
-  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    disable: true   # 그 시절처럼 코드는 색 없이 <pre>로
 
 plugins:
   - jekyll-feed

@@ -1,0 +1,6 @@
+{%- comment -%} 최근 new_days일 안에 쓴 글이면 NEW 그림을 붙입니다. 사용법: {% include new.html date=post.date %} {%- endcomment -%}
+{%- assign _now = site.time | date: '%s' | plus: 0 -%}
+{%- assign _posted = include.date | date: '%s' | plus: 0 -%}
+{%- assign _age = _now | minus: _posted -%}
+{%- assign _window = site.new_days | default: 14 | times: 86400 -%}
+{%- if _age < _window %} <img src="{{ '/assets/img/new.gif' | relative_url }}" width="34" height="13" align="absmiddle" alt="NEW">{% endif -%}

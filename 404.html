@@ -1,27 +1,21 @@
 ---
 layout: null
-title: 404 Not Found
 permalink: /404.html
 ---
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-  {% include head.html %}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 Not Found</title>
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
-<body class="bsod">
-  <main class="bsod-box">
-    <p class="center"><span class="bsod-title">404 ERROR</span></p>
-    <p>치명적인 예외 404가 발생했습니다. 요청하신 페이지를 찾을 수 없습니다.</p>
-    <p>* 주소를 다시 한 번 확인해 주세요.<br>
-       * 아무 키나 누르면 홈페이지로 돌아갑니다.</p>
-    <p class="center">계속하려면 아무 키나 누르십시오 <span class="blink">_</span></p>
-    <p class="center"><a href="{{ '/' | relative_url }}">[ 홈으로 돌아가기 ]</a></p>
-  </main>
-  <script>
-    document.addEventListener('keydown', function (e) {
-      if (['Tab', 'Shift', 'Control', 'Alt', 'Meta'].indexOf(e.key) !== -1) return;
-      location.href = '{{ "/" | relative_url }}';
-    });
-  </script>
+<body bgcolor="#C0C0C0" text="#000000" link="#0000EE" vlink="#551A8B" alink="#FF0000">
+<h1>Not Found</h1>
+The requested URL <span id="path">{{ page.url }}</span> was not found on this server.<p>
+<hr>
+<address>Apache/1.3.3 Server at wxxminjeong.github.io Port 80</address>
+<p><a href="{{ '/' | relative_url }}">처음으로 돌아가기</a></p>
+<script>document.getElementById('path').textContent = location.pathname;</script>
 </body>
 </html>
