@@ -1,0 +1,20 @@
+---
+title: 방명록
+permalink: /guestbook/
+---
+{%- assign repo = site.guestbook.repo -%}
+{%- capture write_url %}https://github.com/{{ repo }}/issues/new?title={{ site.guestbook.title_prefix | append: ' ' | url_encode }}{% endcapture -%}
+<section class="win">
+  {% include titlebar.html title="방명록 - Guestbook" %}
+  <div class="win-body">
+    <div class="paper prose gb-intro">
+      <p><b>와주셔서 감사합니다!</b> 한 마디 남겨주시면 큰 힘이 됩니다 ^^</p>
+      <p>방명록은 GitHub 이슈로 작성돼요. 제목 앞의 <code>{{ site.guestbook.title_prefix }}</code>는 지우지 말아주세요!</p>
+      <p class="center"><a class="btn95 big" href="{{ write_url }}" target="_blank" rel="noopener">✎ 방명록 쓰기</a></p>
+    </div>
+    <div id="guestbook" class="guestbook" data-repo="{{ repo }}" data-prefix="{{ site.guestbook.title_prefix | escape }}">
+      <p class="loading">방명록을 불러오는 중<span class="blink">...</span></p>
+      <noscript><p>자바스크립트를 켜면 방명록을 볼 수 있어요. <a href="https://github.com/{{ repo }}/issues">GitHub에서 보기</a></p></noscript>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,23 @@
+---
+layout: default
+---
+<section class="win">
+  {% include titlebar.html title="환영합니다!" %}
+  <div class="win-body welcome">
+    <p><b>안녕하세요!</b> {{ site.title }}에 오신 것을 환영합니다 ^^</p>
+    <p>{{ site.description }}</p>
+    <p>천천히 둘러보시고 <a href="{{ '/guestbook/' | relative_url }}">방명록</a>에 한 마디 남겨주세요~</p>
+    <p class="center construction">
+      <img class="px" src="{{ '/assets/img/construction.gif' | relative_url }}" width="300" height="40" alt="공사중! UNDER CONSTRUCTION"><br>
+      <small>이 홈페이지는 언제나 공사중입니다... (아마 영원히)</small>
+    </p>
+  </div>
+</section>
+
+<section class="win">
+  {% include titlebar.html title="What's New!!" %}
+  <div class="win-body">
+    {% include board.html posts=site.posts limit=10 %}
+    <p class="right"><a class="btn95" href="{{ '/posts/' | relative_url }}">전체 글 보기 ▶</a></p>
+  </div>
+</section>

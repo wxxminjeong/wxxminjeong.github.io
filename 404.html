@@ -1,0 +1,27 @@
+---
+layout: null
+title: 404 Not Found
+permalink: /404.html
+---
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  {% include head.html %}
+</head>
+<body class="bsod">
+  <main class="bsod-box">
+    <p class="center"><span class="bsod-title">404 ERROR</span></p>
+    <p>치명적인 예외 404가 발생했습니다. 요청하신 페이지를 찾을 수 없습니다.</p>
+    <p>* 주소를 다시 한 번 확인해 주세요.<br>
+       * 아무 키나 누르면 홈페이지로 돌아갑니다.</p>
+    <p class="center">계속하려면 아무 키나 누르십시오 <span class="blink">_</span></p>
+    <p class="center"><a href="{{ '/' | relative_url }}">[ 홈으로 돌아가기 ]</a></p>
+  </main>
+  <script>
+    document.addEventListener('keydown', function (e) {
+      if (['Tab', 'Shift', 'Control', 'Alt', 'Meta'].indexOf(e.key) !== -1) return;
+      location.href = '{{ "/" | relative_url }}';
+    });
+  </script>
+</body>
+</html>

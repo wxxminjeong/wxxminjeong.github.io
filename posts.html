@@ -1,0 +1,11 @@
+---
+title: 글 목록
+permalink: /posts/
+---
+{%- capture window_title %}글 목록 - 전체 {{ site.posts.size }}개{% endcapture -%}
+<section class="win">
+  {% include titlebar.html title=window_title %}
+  <div class="win-body">
+    {% include board.html posts=site.posts %}
+  </div>
+</section>

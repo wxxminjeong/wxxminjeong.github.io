@@ -1,0 +1,24 @@
+---
+title: 태그
+permalink: /tags/
+---
+{%- assign tags = site.tags | sort -%}
+<section class="win">
+  {% include titlebar.html title="태그별 글 보기" %}
+  <div class="win-body">
+    {%- if tags.size == 0 %}
+    <p>아직 태그가 없습니다.</p>
+    {%- else %}
+    <p class="tag-list">
+      {%- for tag in tags %}
+      <a class="btn95" href="#{{ tag[0] | slugify }}">{{ tag[0] }} ({{ tag[1].size }})</a>
+      {%- endfor %}
+    </p>
+    {%- for tag in tags %}
+    {%- assign tag_posts = tag[1] %}
+    <h2 class="tag-head" id="{{ tag[0] | slugify }}"><img class="px" src="{{ '/assets/img/star.gif' | relative_url }}" width="11" height="11" alt=""> {{ tag[0] }}</h2>
+    {% include board.html posts=tag_posts %}
+    {%- endfor %}
+    {%- endif %}
+  </div>
+</section>

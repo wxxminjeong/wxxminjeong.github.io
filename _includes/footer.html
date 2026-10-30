@@ -1,0 +1,14 @@
+{%- assign img = '/assets/img/' | relative_url -%}
+<footer class="footer">
+  <hr>
+  <p class="badges">
+    <a href="https://jekyllrb.com/" target="_blank" rel="noopener"><img class="px" src="{{ img }}btn-jekyll.gif" width="88" height="31" alt="Powered by Jekyll"></a>
+    <a href="https://pages.github.com/" target="_blank" rel="noopener"><img class="px" src="{{ img }}btn-ghpages.gif" width="88" height="31" alt="GitHub Pages"></a>
+    <a href="{{ '/feed.xml' | relative_url }}"><img class="px" src="{{ img }}btn-rss.gif" width="88" height="31" alt="RSS 피드"></a>
+    <a href="{{ '/guestbook/' | relative_url }}"><img class="px" src="{{ img }}btn-guestbook.gif" width="88" height="31" alt="방명록 쓰기"></a>
+    <img class="px" src="{{ img }}btn-800x600.gif" width="88" height="31" alt="800x600 해상도에 최적화">
+  </p>
+  <p>이 홈페이지는 <b>800×600</b> 해상도, <b>16비트 하이컬러</b>에 최적화되어 있습니다.</p>
+  <p>마지막 업데이트: {{ site.time | date: "%Y년 %-m월 %-d일" }}</p>
+  <p>Copyright ⓒ {{ site.time | date: "%Y" }} {{ site.author }}. All rights reserved.</p>
+</footer>
