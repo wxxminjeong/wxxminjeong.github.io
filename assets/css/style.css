@@ -216,6 +216,9 @@ div.ArticleText table:not(.Form) td {
 }
 div.ArticleText table:not(.Form) th { background-color: var(--bar-bg); color: var(--bar-text); }
 
+/* 가운데 정렬한 수식 한 줄 */
+p.eq { margin: 1em 0; text-align: center; overflow-x: auto; }
+
 /* 글 안 스크린샷: figure.shot 하나는 전체 폭, div.shots 안에 두 개를 넣으면 두 칸 */
 figure.shot { clear: both; margin: 1em 0; }
 figure.shot img {
