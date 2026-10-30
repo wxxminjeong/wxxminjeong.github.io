@@ -5,7 +5,7 @@
   'use strict';
 
   var box = document.getElementById('search-results');
-  var input = document.getElementById('q');
+  var input = document.getElementById('q'); // 위쪽 막대의 검색창
   if (!box || !input) return;
 
   var query = (new URLSearchParams(location.search).get('q') || '').trim();
