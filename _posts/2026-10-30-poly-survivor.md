@@ -5,7 +5,7 @@ category: Projects
 lang: ko
 ---
 
-로블록스 플랫폼 기반의 뱀파이어 서바이벌 방식 액션 게임입니다.
+로블록스 플랫폼 기반의 뱀파이어 서바이벌 방식 액션 게임.
 
 [Roblox에서 플레이하기](https://www.roblox.com/games/97566754394912/Poly-Survivor)
 
