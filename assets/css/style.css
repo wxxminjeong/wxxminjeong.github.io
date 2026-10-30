@@ -105,37 +105,30 @@ img { max-width: 100%; height: auto; }
 }
 
 .logo-link {
-  position: relative;
-  display: block;
-  height: 110px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 10px 2px 0;
   text-decoration: none;
 }
 .logo-link:hover { background: none; }
 .logo-img {
-  position: absolute;
-  top: 8px;
-  left: 4px;
-  width: 56px;
-  height: 56px;
+  flex: none;
+  width: 36px;
+  height: 36px;
   image-rendering: pixelated;
 }
 .logo-text {
-  position: absolute;
-  top: 8px;
-  left: 68px;
   color: var(--accent);
-  font: bold 180%/1 sans-serif;
+  font: bold 15px/1.15 sans-serif;
 }
-.logo-tag {
-  position: absolute;
-  top: 78px;
-  left: 4px;
+.logo-sub {
   color: var(--logo-tag);
-  font: 80% sans-serif;
+  font-weight: normal;
 }
 
 ul.navmenu { list-style: none; margin: 0; padding: 0; }
-.navmenu > li { margin: 0.5em 0 0 0.1em; }
+.navmenu > li { margin: 1.2em 0 0 0.1em; }
 .navmenu b { color: var(--accent); }
 .navmenu ul { list-style: none; margin: 0; padding: 0; }
 .navmenu ul li { margin: 0.1em 0 0 0.9em; text-indent: -0.4em; line-height: 1.2; }
@@ -306,12 +299,10 @@ div.FormattedComment { padding: 0 4px; white-space: pre-wrap; }
     width: auto;
     padding: 0.4em 0.5em;
   }
-  .logo-link { display: flex; align-items: center; gap: 0.4em; height: auto; }
-  .logo-img, .logo-text, .logo-tag { position: static; }
-  .logo-img { width: 32px; height: 32px; }
-  .logo-text { font-size: 140%; }
+  .logo-link { padding-top: 0; }
+  .logo-img { width: 28px; height: 28px; }
+  .logo-text { font-size: 18px; }
   .logo-text br { display: none; }
-  .logo-tag { align-self: flex-end; }
   .navmenu > li { margin: 0.3em 0 0; }
   .navmenu > li > b { display: none; }
   .navmenu ul li { display: inline-block; margin: 0.2em 0.8em 0 0; text-indent: 0; }

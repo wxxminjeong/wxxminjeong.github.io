@@ -1,13 +1,12 @@
 <div id="menu">
-<a class="logo-link" href="{{ '/' | relative_url }}" aria-label="Front page">
-<img class="logo-img" src="{{ '/assets/img/logo.png' | relative_url }}" width="56" height="56" alt="">
-<span class="logo-text">{{ site.brand.line1 }}<br>{{ site.brand.line2 }}</span>
-<span class="logo-tag">{{ site.brand.tagline }}</span>
+<a class="logo-link" href="{{ '/' | relative_url }}" aria-label="Home">
+<img class="logo-img" src="{{ '/assets/img/logo.png' | relative_url }}" width="36" height="36" alt="">
+<span class="logo-text">{{ site.brand.line1 }}<br><span class="logo-sub">{{ site.brand.line2 }}</span></span>
 </a>
 <ul class="navmenu">
 <li><b>Contents</b>
 <ul>
-<li><a href="{{ '/' | relative_url }}">Front page</a></li>
+<li><a href="{{ '/' | relative_url }}">Home</a></li>
 <li><a href="{{ '/posts/' | relative_url }}">Archives</a></li>
 <li><a href="{{ '/tags/' | relative_url }}">Tags</a></li>
 <li><a href="{{ '/search/' | relative_url }}">Search</a></li>
@@ -16,12 +15,5 @@
 <li><a href="{{ '/feed.xml' | relative_url }}">RSS feed</a></li>
 </ul>
 </li>
-{%- if page.layout == "post" %}
-<li><b>This article</b>
-<ul>
-<li><a href="{{ '/' | relative_url }}">Back to the front page</a></li>
-</ul>
-</li>
-{%- endif %}
 </ul>
 </div>
