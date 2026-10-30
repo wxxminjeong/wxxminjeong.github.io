@@ -21,10 +21,13 @@ brand:
 # 첫 화면에 보일 글 개수
 front_page_posts: 10
 
-# 글마다 달리는 댓글은 이 저장소의 GitHub Issues를 사용합니다
-issues:
+# 댓글: giscus (이 저장소의 GitHub Discussions에 저장됩니다)
+# 값은 https://giscus.app 에서 저장소를 입력하면 나오는 것과 같습니다
+giscus:
   repo: wxxminjeong/wxxminjeong.github.io
-  comment_prefix: "[Comment]"
+  repo_id: R_kgDOVcfJ8A
+  category: Announcements
+  category_id: DIC_kwDOVcfJ8M4DJ937
 
 # ----------------------------------------------------------
 #  빌드 설정 (보통은 건드리지 않아도 됩니다)

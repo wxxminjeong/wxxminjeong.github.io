@@ -1,0 +1,186 @@
+/*! MIT License
+ * Copyright (c) 2018 GitHub Inc.
+ * https://github.com/primer/primitives/blob/main/LICENSE
+ */
+/* 블로그 색(남색 / 호박색 / 옅은 하늘색)에 맞춘 giscus 테마: giscus 기본 light·dark 테마에서 색 변수만 바꿨습니다 */
+
+main {
+  --color-prettylights-syntax-comment: #6e7781;
+  --color-prettylights-syntax-constant: #0550ae;
+  --color-prettylights-syntax-entity: #8250df;
+  --color-prettylights-syntax-storage-modifier-import: #24292f;
+  --color-prettylights-syntax-entity-tag: #116329;
+  --color-prettylights-syntax-keyword: #cf222e;
+  --color-prettylights-syntax-string: #0a3069;
+  --color-prettylights-syntax-variable: #953800;
+  --color-prettylights-syntax-brackethighlighter-unmatched: #82071e;
+  --color-prettylights-syntax-invalid-illegal-text: #f6f8fa;
+  --color-prettylights-syntax-invalid-illegal-bg: #82071e;
+  --color-prettylights-syntax-carriage-return-text: #f6f8fa;
+  --color-prettylights-syntax-carriage-return-bg: #cf222e;
+  --color-prettylights-syntax-string-regexp: #116329;
+  --color-prettylights-syntax-markup-list: #3b2300;
+  --color-prettylights-syntax-markup-heading: #0550ae;
+  --color-prettylights-syntax-markup-italic: #24292f;
+  --color-prettylights-syntax-markup-bold: #24292f;
+  --color-prettylights-syntax-markup-deleted-text: #82071e;
+  --color-prettylights-syntax-markup-deleted-bg: #ffebe9;
+  --color-prettylights-syntax-markup-inserted-text: #116329;
+  --color-prettylights-syntax-markup-inserted-bg: #dafbe1;
+  --color-prettylights-syntax-markup-changed-text: #953800;
+  --color-prettylights-syntax-markup-changed-bg: #ffd8b5;
+  --color-prettylights-syntax-markup-ignored-text: #eaeef2;
+  --color-prettylights-syntax-markup-ignored-bg: #0550ae;
+  --color-prettylights-syntax-meta-diff-range: #8250df;
+  --color-prettylights-syntax-brackethighlighter-angle: #57606a;
+  --color-prettylights-syntax-sublimelinter-gutter-mark: #8c959f;
+  --color-prettylights-syntax-constant-other-reference-link: #0a3069;
+  --color-btn-text: #003366;
+  --color-btn-bg: #f0f4f9;
+  --color-btn-border: #7a8ca3;
+  --color-btn-shadow: 0 0 #0000;
+  --color-btn-inset-shadow: 0 0 #0000;
+  --color-btn-hover-bg: #dde7f3;
+  --color-btn-hover-border: #003366;
+  --color-btn-active-bg: #c5d3e3;
+  --color-btn-active-border: #003366;
+  --color-btn-selected-bg: #dde7f3;
+  --color-btn-primary-text: #000000;
+  --color-btn-primary-bg: #ffcc33;
+  --color-btn-primary-border: #996600;
+  --color-btn-primary-shadow: 0 0 #0000;
+  --color-btn-primary-inset-shadow: 0 0 #0000;
+  --color-btn-primary-hover-bg: #ffdd66;
+  --color-btn-primary-hover-border: #996600;
+  --color-btn-primary-selected-bg: #ffcc33;
+  --color-btn-primary-selected-shadow: 0 0 #0000;
+  --color-btn-primary-disabled-text: #00000080;
+  --color-btn-primary-disabled-bg: #ffe699;
+  --color-btn-primary-disabled-border: #99660080;
+  --color-action-list-item-default-hover-bg: #dde7f3;
+  --color-segmented-control-bg: #dde7f3;
+  --color-segmented-control-button-bg: #ffffff;
+  --color-segmented-control-button-selected-border: #003366;
+  --color-fg-default: #000000;
+  --color-fg-muted: #444444;
+  --color-fg-subtle: #666666;
+  --color-canvas-default: #ffffff;
+  --color-canvas-overlay: #ffffff;
+  --color-canvas-inset: #f0f4f9;
+  --color-canvas-subtle: #dde7f3;
+  --color-border-default: #c5d3e3;
+  --color-border-muted: #dde7f3;
+  --color-neutral-muted: #c5d3e366;
+  --color-accent-fg: #0033cc;
+  --color-accent-emphasis: #003366;
+  --color-accent-muted: #99bbdd66;
+  --color-accent-subtle: #f0f4f9;
+  --color-success-fg: #1a7f37;
+  --color-attention-fg: #9a6700;
+  --color-attention-muted: #d4a72c66;
+  --color-attention-subtle: #fff8c5;
+  --color-danger-fg: #d1242f;
+  --color-danger-muted: #ff818266;
+  --color-danger-subtle: #ffebe9;
+  --color-primer-shadow-inset: 0 0 #0000;
+  --color-scale-gray-1: #dde7f3;
+  --color-scale-blue-1: #c5d3e3;
+  --color-social-reaction-bg-hover: var(--color-scale-gray-1);
+  --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-1);
+}
+main .pagination-loader-container{background-image:url(https://github.com/images/modules/pulls/progressive-disclosure-line.svg)}main .gsc-loading-image{background-image:url(https://github.githubassets.com/images/mona-loading-default.gif)}
+
+@media (prefers-color-scheme: dark) {
+  main {
+    --color-prettylights-syntax-comment: #8b949e;
+    --color-prettylights-syntax-constant: #79c0ff;
+    --color-prettylights-syntax-entity: #d2a8ff;
+    --color-prettylights-syntax-storage-modifier-import: #c9d1d9;
+    --color-prettylights-syntax-entity-tag: #7ee787;
+    --color-prettylights-syntax-keyword: #ff7b72;
+    --color-prettylights-syntax-string: #a5d6ff;
+    --color-prettylights-syntax-variable: #ffa657;
+    --color-prettylights-syntax-brackethighlighter-unmatched: #f85149;
+    --color-prettylights-syntax-invalid-illegal-text: #f0f6fc;
+    --color-prettylights-syntax-invalid-illegal-bg: #8e1519;
+    --color-prettylights-syntax-carriage-return-text: #f0f6fc;
+    --color-prettylights-syntax-carriage-return-bg: #b62324;
+    --color-prettylights-syntax-string-regexp: #7ee787;
+    --color-prettylights-syntax-markup-list: #f2cc60;
+    --color-prettylights-syntax-markup-heading: #1f6feb;
+    --color-prettylights-syntax-markup-italic: #c9d1d9;
+    --color-prettylights-syntax-markup-bold: #c9d1d9;
+    --color-prettylights-syntax-markup-deleted-text: #ffdcd7;
+    --color-prettylights-syntax-markup-deleted-bg: #67060c;
+    --color-prettylights-syntax-markup-inserted-text: #aff5b4;
+    --color-prettylights-syntax-markup-inserted-bg: #033a16;
+    --color-prettylights-syntax-markup-changed-text: #ffdfb6;
+    --color-prettylights-syntax-markup-changed-bg: #5a1e02;
+    --color-prettylights-syntax-markup-ignored-text: #c9d1d9;
+    --color-prettylights-syntax-markup-ignored-bg: #1158c7;
+    --color-prettylights-syntax-meta-diff-range: #d2a8ff;
+    --color-prettylights-syntax-brackethighlighter-angle: #8b949e;
+    --color-prettylights-syntax-sublimelinter-gutter-mark: #484f58;
+    --color-prettylights-syntax-constant-other-reference-link: #a5d6ff;
+    --color-btn-text: #e6eefa;
+    --color-btn-bg: #1a1f27;
+    --color-btn-border: #4d5b6b;
+    --color-btn-shadow: 0 0 #0000;
+    --color-btn-inset-shadow: 0 0 #0000;
+    --color-btn-hover-bg: #1d3352;
+    --color-btn-hover-border: #9cc3ff;
+    --color-btn-active-bg: #24405f;
+    --color-btn-active-border: #9cc3ff;
+    --color-btn-selected-bg: #1a1f27;
+    --color-btn-primary-text: #000000;
+    --color-btn-primary-bg: #b38f24;
+    --color-btn-primary-border: #665214;
+    --color-btn-primary-shadow: 0 0 #0000;
+    --color-btn-primary-inset-shadow: 0 0 #0000;
+    --color-btn-primary-hover-bg: #ccaa33;
+    --color-btn-primary-hover-border: #665214;
+    --color-btn-primary-selected-bg: #b38f24;
+    --color-btn-primary-selected-shadow: 0 0 #0000;
+    --color-btn-primary-disabled-text: #00000080;
+    --color-btn-primary-disabled-bg: #b38f2499;
+    --color-btn-primary-disabled-border: #66521499;
+    --color-action-list-item-default-hover-bg: #1d3352;
+    --color-segmented-control-bg: #1d3352;
+    --color-segmented-control-button-bg: #111111;
+    --color-segmented-control-button-selected-border: #9cc3ff;
+    --color-fg-default: #eeeeee;
+    --color-fg-muted: #aaaaaa;
+    --color-fg-subtle: #888888;
+    --color-canvas-default: #111111;
+    --color-canvas-overlay: #1a1f27;
+    --color-canvas-inset: #0a1a2e;
+    --color-canvas-subtle: #1d3352;
+    --color-border-default: #2c3a4d;
+    --color-border-muted: #1d3352;
+    --color-neutral-muted: #2c3a4d66;
+    --color-accent-fg: #8cb4ff;
+    --color-accent-emphasis: #9cc3ff;
+    --color-accent-muted: #8cb4ff66;
+    --color-accent-subtle: #1d3352;
+    --color-success-fg: #3fb950;
+    --color-attention-fg: #d29922;
+    --color-attention-muted: #bb800966;
+    --color-attention-subtle: #bb800926;
+    --color-danger-fg: #f85149;
+    --color-danger-muted: #f8514966;
+    --color-danger-subtle: #f851491a;
+    --color-primer-shadow-inset: 0 0 #0000;
+    --color-scale-gray-7: #1d3352;
+    --color-scale-blue-8: #24405f;
+    --color-social-reaction-bg-hover: var(--color-scale-gray-7);
+    --color-social-reaction-bg-reacted-hover: var(--color-scale-blue-8);
+  }
+  main .pagination-loader-container{background-image:url(https://github.com/images/modules/pulls/progressive-disclosure-line-dark.svg)}main .gsc-loading-image{background-image:url(https://github.githubassets.com/images/mona-loading-dark.gif)}
+}
+
+/* 본문과 같은 명조 글꼴, 각진 모서리 */
+main, main * {
+  font-family: "Times New Roman", Times, Batang, "바탕", AppleMyungjo, serif;
+  border-radius: 0 !important;
+}
+main code, main pre, main kbd, main samp, main tt { font-family: monospace; }

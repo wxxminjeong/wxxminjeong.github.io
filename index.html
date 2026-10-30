@@ -14,7 +14,6 @@ or browse the <a href="{{ '/posts/' | relative_url }}">archives</a>.
 <p>Nothing posted yet.
 {%- endif %}
 {%- for post in site.posts limit: site.front_page_posts %}
-{%- capture comment_title %}{{ site.issues.comment_prefix }} {{ post.title }}{% endcapture %}
 
 <h2 class="Headline">{{ post.title | escape }}</h2>
 <div class="BlurbListing">
@@ -22,7 +21,7 @@ or browse the <a href="{{ '/posts/' | relative_url }}">archives</a>.
 {{ post.excerpt }}
 <p>
 <a href="{{ post.url | relative_url }}">Read more</a>
-(<a href="{{ post.url | relative_url }}#Comments" data-comment-count="{{ comment_title | escape }}">comments</a>)
+(<a href="{{ post.url | relative_url }}#Comments">comments</a>)
 </div>
 {%- endfor %}
 {%- if site.posts.size > site.front_page_posts %}

@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-{%- capture comment_title %}{{ site.issues.comment_prefix }} {{ page.title }}{% endcapture -%}
 <div class="PageHeadline">
 <h1>{{ page.title }}</h1>
 </div>
@@ -21,10 +20,23 @@ By <b>{{ site.author }}</b><br>{% include date.html date=page.date %}
 <span>{% if page.next %}Next: <a href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }}</a> &gt;&gt;{% endif %}</span>
 </div>
 <hr width="60%" align="left">
-<form action="https://github.com/{{ site.issues.repo }}/issues/new" method="get" target="_blank">
-<input type="hidden" name="title" value="{{ comment_title | escape }}">
-<input type="submit" value="Add a comment"> (requires a GitHub account)
-</form>
-<p><a name="Comments"></a>
-<div data-comments="{{ comment_title | escape }}" data-empty="No comments yet."></div>
+<p><a name="Comments"></a><b>Comments</b>
+<div class="giscus"></div>
+<script src="https://giscus.app/client.js"
+        data-repo="{{ site.giscus.repo }}"
+        data-repo-id="{{ site.giscus.repo_id }}"
+        data-category="{{ site.giscus.category }}"
+        data-category-id="{{ site.giscus.category_id }}"
+        data-mapping="pathname"
+        data-strict="1"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-input-position="bottom"
+        data-theme="{{ '/assets/css/giscus.css' | absolute_url }}?v={{ site.time | date: '%s' }}"
+        data-lang="en"
+        data-loading="lazy"
+        crossorigin="anonymous"
+        async>
+</script>
+<noscript><p>Comments need JavaScript.</noscript>
 </div>
