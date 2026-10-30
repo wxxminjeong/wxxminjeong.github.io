@@ -1,4 +1,4 @@
-# wxxminjeong.github.io
+# wxxminjeong github io
 
 [LWN.net](https://lwn.net/)의 레이아웃 구조(왼쪽 메뉴, 위쪽 막대, 제목 띠)를 참고한 영어 개발 블로그입니다. → https://wxxminjeong.github.io
 

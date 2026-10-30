@@ -3,7 +3,7 @@
 #  고친 뒤에는 로컬 서버(jekyll serve)를 다시 켜야 반영됩니다.
 # ==========================================================
 
-title: wxxminjeong.github.io
+title: wxxminjeong github io
 description: Notes on things I learn, build, and break.
 author: wxxminjeong
 github_username: wxxminjeong
@@ -15,7 +15,7 @@ timezone: Asia/Seoul
 # 왼쪽 위 로고 글씨 (두 줄)
 brand:
   line1: wxxminjeong
-  line2: .github.io
+  line2: github io
 
 # 첫 화면에 보일 글 개수
 front_page_posts: 10
