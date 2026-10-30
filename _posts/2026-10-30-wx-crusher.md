@@ -5,7 +5,7 @@ category: Projects
 lang: ko
 ---
 
-**Drive**, **Bitcrush**, **Clipper** 세 단계를 각각 따로 조절할 수 있는 디지털 디스토션 플러그인(VST3). JUCE로 만들었다.
+**Drive**, **Bitcrush**, **Clipper** 세 단계를 각각 따로 조절할 수 있는 디지털 디스토션 플러그인(VST3)
 
 [GitHub](https://github.com/wxxminjeong/WX_CRUSHER) · [다운로드 (Releases)](https://github.com/wxxminjeong/WX_CRUSHER/releases)
 
@@ -28,7 +28,7 @@ Input → Drive → Bitcrush → Clipper → Mix → Output
 | Bitcrush | Bit depth | 16 ~ 1 bit | 비트 해상도를 낮춰 계단 모양의 거친 노이즈를 만든다. 16 bit면 소리가 그대로다. |
 | Clipper | Ceiling | 0 ~ −24 dB | 천장(Ceiling)을 넘는 부분을 잘라내(하드 클리핑) 파형의 꼭대기를 평평하게 만든다. 천장이 낮을수록 더 많이 잘리고 출력은 작아진다. |
 | Mix | Dry / wet | 0 ~ 100 % | 원래 소리와 처리된 소리를 섞는다. |
-| Output | Level | −24 ~ +12 dB | 최종 출력 크기. |
+| Output | Level | −24 ~ +12 dB | 최종 출력 크기 |
 
 - Drive, Bitcrush, Clipper에는 각각 **ON / OFF** 버튼이 있다.
 - 세 스테이지 노브는 모두 오른쪽으로 돌릴수록 효과가 세진다. Bitcrush와 Clipper는 오른쪽으로 돌릴수록 숫자가 작아진다.
@@ -39,7 +39,7 @@ Input → Drive → Bitcrush → Clipper → Mix → Output
 - **WAVE**: 오실로스코프. 회색이 입력, 흰색이 출력이다. Clipper가 소리를 자르는 동안 출력 파형이 빨갛게 변한다.
 - **SPECTRUM**: 입력(회색)과 출력(흰색)의 주파수 스펙트럼. 디스토션이 더한 배음이 보인다.
 - **TRANSFER**: 지금 설정이 입력 크기를 출력 크기로 어떻게 바꾸는지 보여주는 그래프. 점선 대각선은 처리하지 않은 소리, 빨간 영역은 그 차이, 빨간 점은 지금 들어오는 소리의 크기다. Drive가 높으면 입력 축이 확대되고, 배율은 오른쪽 위에 표시된다.
-- **IN / OUT**: 피크 홀드가 있는 피크 미터.
+- **IN / OUT**: 피크 홀드가 있는 피크 미터
 - 각 스테이지 아래의 **LED**는 그 스테이지가 실제로 소리를 바꾸고 있을 때 켜진다.
 
 ## 사용법
