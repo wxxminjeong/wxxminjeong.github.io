@@ -6,7 +6,6 @@ permalink: /posts/
 <h1>Archives</h1>
 </div>
 <div class="ArticleText" id="content">
-<p>{% if site.posts.size == 1 %}1 post so far.{% else %}All {{ site.posts.size }} posts, newest first.{% endif %}
 {%- assign years = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
 {%- for year in years %}
 
