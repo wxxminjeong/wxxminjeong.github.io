@@ -6,9 +6,14 @@ layout: default
 </div>
 <div class="ArticleText" id="content">
 <blockquote class="intro" style="margin-top: 0">
+<p>Hi, I'm <b>{{ site.author }}</b>. Thanks for stopping by.
 {{ site.description }}
-New here? Start with the <a href="{{ '/about/' | relative_url }}">About</a> page,
-or browse the <a href="{{ '/posts/' | relative_url }}">archives</a>.
+<table class="profile">
+<tr><th>Handle</th><td>{{ site.author }}</td></tr>
+<tr><th>What I do</th><td>Machine learning</td></tr>
+<tr><th>Interests</th><td>Sports science</td></tr>
+<tr><th>Contact</th><td><a href="mailto:wxxminjeong@gmail.com">wxxminjeong@gmail.com</a></td></tr>
+</table>
 </blockquote>
 {%- if site.posts.size == 0 %}
 <p>Nothing posted yet.
