@@ -178,6 +178,7 @@ h2.Cat2HL {
 }
 h2.Cat2HL { margin-bottom: 0.3em; font-size: 1.2em; }
 div.BlurbListing { padding-left: 12px; }
+div.BlurbListing.intro { margin-bottom: 3em; }
 
 p.Feature { margin: 0 0 2px 1em; text-indent: -1em; }
 
