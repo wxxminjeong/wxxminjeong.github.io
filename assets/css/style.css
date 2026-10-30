@@ -216,6 +216,24 @@ div.ArticleText table:not(.Form) td {
 }
 div.ArticleText table:not(.Form) th { background-color: var(--bar-bg); color: var(--bar-text); }
 
+/* 글 안 스크린샷: figure.shot 하나는 전체 폭, div.shots 안에 두 개를 넣으면 두 칸 */
+figure.shot { clear: both; margin: 1em 0; }
+figure.shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--panel-edge);
+}
+figure.shot a:hover { background: none; }
+figure.shot figcaption { margin-top: 4px; font-size: small; text-align: center; }
+div.shots {
+  clear: both;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 12px;
+}
+div.shots figure.shot { margin: 0 0 1em; }
+
 div.yaflex { display: flex; gap: 1em; margin-top: 1em; }
 div.yaflex span.grow { flex-grow: 1; }
 
@@ -307,6 +325,7 @@ div.FormattedComment { padding: 0 4px; white-space: pre-wrap; }
   div.FeatureByline { float: none; max-width: none; margin: 0 0 1em; }
   .footer { padding-left: 0; }
   div.yaflex { flex-direction: column; gap: 0.3em; }
+  div.shots { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media print {
