@@ -15,10 +15,10 @@ or browse the <a href="{{ '/posts/' | relative_url }}">archives</a>.
 {%- endif %}
 {%- for post in site.posts limit: site.front_page_posts %}
 
-<h2 class="Headline">{{ post.title | escape }}</h2>
-<div class="BlurbListing">
+<h2 class="Headline"{% if post.lang %} lang="{{ post.lang }}"{% endif %}>{{ post.title | escape }}</h2>
+<div class="BlurbListing"{% if post.lang %} lang="{{ post.lang }}"{% endif %}>
 {% include byline.html post=post %}
-{{ post.excerpt }}
+{{ post.excerpt | markdownify }}
 <p>
 <a href="{{ post.url | relative_url }}">Read more</a>
 (<a href="{{ post.url | relative_url }}#Comments">comments</a>)

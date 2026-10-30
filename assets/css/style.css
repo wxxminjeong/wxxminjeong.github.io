@@ -69,6 +69,8 @@ body {
   overflow-wrap: break-word;
 }
 
+[lang|="ko"] { word-break: keep-all; }
+
 a { text-decoration: underline; }
 a:link { color: var(--link); }
 a:visited { color: var(--vlink); }
@@ -199,8 +201,11 @@ div.ArticleText blockquote:not(.intro) { color: var(--quote); }
 div.ArticleText li { margin-bottom: 0.3em; }
 
 div.ArticleText table:not(.Form):not(.IndexEntries) {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  overflow-x: auto;
   border-collapse: collapse;
-  border: 1px solid var(--panel-edge);
 }
 div.ArticleText table:not(.Form):not(.IndexEntries) th,
 div.ArticleText table:not(.Form):not(.IndexEntries) td {
