@@ -5,13 +5,8 @@ layout: default
 <h1>{{ page.title }}</h1>
 </div>
 <div class="ArticleText" id="content"{% if page.lang %} lang="{{ page.lang }}"{% endif %}>
-<div class="FeatureByline">
-By <b>{{ site.author }}</b><br>{% include date.html date=page.date %}
-{%- if page.category %}
-<hr>
-<a href="{{ '/' | append: page.category | slugify | append: '/' | relative_url }}">{{ page.category }}</a>
-{%- endif %}
-</div>
+<p class="Byline">By <b>{{ site.author }}</b> &middot; {% include date.html date=page.date %}
+{%- if page.category %} &middot; <a href="{{ '/' | append: page.category | slugify | append: '/' | relative_url }}">{{ page.category }}</a>{% endif %}</p>
 {{ content }}
 <br clear="all">
 <div class="yaflex">
