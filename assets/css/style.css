@@ -320,7 +320,6 @@ div.FormattedComment { padding: 0 4px; white-space: pre-wrap; }
   .navmenu ul li:has(hr) { display: none; }
   .navmenu > li + li { display: none; }
   .topnav { margin: 0.5em; }
-  .not-handset { display: none; }
   .maincolumn { padding: 0 0.5em; }
   div.FeatureByline { float: none; max-width: none; margin: 0 0 1em; }
   .footer { padding-left: 0; }

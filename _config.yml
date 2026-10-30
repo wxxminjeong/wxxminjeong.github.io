@@ -41,7 +41,6 @@ kramdown:
     disable: true   # 코드는 색 없이 <pre>로
 
 plugins:
-  - jekyll-feed
   - jekyll-seo-tag
   - jekyll-sitemap
 
