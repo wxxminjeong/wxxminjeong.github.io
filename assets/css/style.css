@@ -197,7 +197,7 @@ div.ArticleText h3,
 div.ArticleText h4 { margin: 1.2em 0 0.4em; font-size: 1em; font-weight: bold; }
 div.ArticleText h2 { font-size: 1.1em; }
 
-div.ArticleText blockquote:not(.intro) { color: var(--quote); }
+div.ArticleText blockquote { color: var(--quote); }
 div.ArticleText li { margin-bottom: 0.3em; }
 
 div.ArticleText table:not(.Form) {

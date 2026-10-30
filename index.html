@@ -5,8 +5,8 @@ layout: default
 <h1>Welcome to {{ site.title }}</h1>
 </div>
 <div class="ArticleText" id="content">
-<blockquote class="intro" style="margin-top: 0">
-<p>Hi, I'm <b>{{ site.author }}</b>. Thanks for stopping by.
+<div class="BlurbListing">
+<p style="margin-top: 0">Hi, I'm <b>{{ site.author }}</b>. Thanks for stopping by.
 {{ site.description }}
 <table class="profile">
 <tr><th>Handle</th><td>{{ site.author }}</td></tr>
@@ -14,7 +14,7 @@ layout: default
 <tr><th>Interests</th><td>Sports science</td></tr>
 <tr><th>Contact</th><td><a href="mailto:wxxminjeong@gmail.com">wxxminjeong@gmail.com</a></td></tr>
 </table>
-</blockquote>
+</div>
 {%- if site.posts.size == 0 %}
 <p>Nothing posted yet.
 {%- endif %}
