@@ -13,7 +13,7 @@ permalink: /posts/
 <h2 class="Cat2HL">{{ year.name }}</h2>
 {%- for post in year.items %}
 <p class="Feature"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
-<span class="Smaller">({{ post.date | date: "%b %-d" }})</span>
+<span class="Smaller">({{ post.date | date: "%b %-d" }}{% if post.category %}; {{ post.category }}{% endif %})</span>
 {%- endfor %}
 {%- endfor %}
 </div>

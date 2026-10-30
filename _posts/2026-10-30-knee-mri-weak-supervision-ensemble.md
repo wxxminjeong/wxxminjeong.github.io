@@ -1,6 +1,7 @@
 ---
 title: "Kaggle RSNA Knee Abnormality Detection 솔루션: 약지도 라벨링과 소견별 상보성 기반 앙상블"
 date: 2026-10-30 15:30:00 +0900
+category: Reports
 lang: ko
 excerpt: "Kaggle RSNA Knee Abnormality Detection 대회에 참가하며 만든 솔루션을 정리한 글이다. 판독문만 주어진 무릎 MRI 데이터에서 대규모 언어모델로 라벨을 만들고, 소견별 상보성에 따라 모델을 앙상블했다. 최종 순위는 6,299팀 중 209위(상위 3.3%)."
 ---

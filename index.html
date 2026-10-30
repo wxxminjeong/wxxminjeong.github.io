@@ -20,14 +20,7 @@ layout: default
 {%- endif %}
 {%- for post in site.posts limit: site.front_page_posts %}
 
-<h2 class="Headline"{% if post.lang %} lang="{{ post.lang }}"{% endif %}>{{ post.title | escape }}</h2>
-<div class="BlurbListing"{% if post.lang %} lang="{{ post.lang }}"{% endif %}>
-{% include byline.html post=post %}
-{{ post.excerpt | markdownify }}
-<p>
-<a href="{{ post.url | relative_url }}">Read more</a>
-(<a href="{{ post.url | relative_url }}#Comments">comments</a>)
-</div>
+{% include post-blurb.html post=post %}
 {%- endfor %}
 {%- if site.posts.size > site.front_page_posts %}
 <p><a href="{{ '/posts/' | relative_url }}">--&gt; Older posts</a>

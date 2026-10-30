@@ -1,0 +1,9 @@
+{%- comment -%} 글 하나의 소개 블록 (제목 띠, 분류·날짜 줄, 요약, 더 읽기). 사용법: {% include post-blurb.html post=post %} {%- endcomment -%}
+<h2 class="Headline"{% if include.post.lang %} lang="{{ include.post.lang }}"{% endif %}>{{ include.post.title | escape }}</h2>
+<div class="BlurbListing"{% if include.post.lang %} lang="{{ include.post.lang }}"{% endif %}>
+{% include byline.html post=include.post %}
+{{ include.post.excerpt | markdownify }}
+<p>
+<a href="{{ include.post.url | relative_url }}">Read more</a>
+(<a href="{{ include.post.url | relative_url }}#Comments">comments</a>)
+</div>

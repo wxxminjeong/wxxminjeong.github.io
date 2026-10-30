@@ -1,0 +1,15 @@
+{%- comment -%} 분류 페이지 본문. 사용법: {% include category.html name="Reports" intro="..." %} {%- endcomment -%}
+{%- assign cat_posts = site.categories[include.name] -%}
+<div class="PageHeadline">
+<h1>{{ include.name }}</h1>
+</div>
+<div class="ArticleText" id="content">
+<p>{{ include.intro }}
+{%- if cat_posts == nil or cat_posts.size == 0 %}
+<p>Nothing here yet.
+{%- else %}
+{%- for post in cat_posts %}
+{% include post-blurb.html post=post %}
+{%- endfor %}
+{%- endif %}
+</div>

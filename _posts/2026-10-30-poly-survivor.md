@@ -1,6 +1,7 @@
 ---
 title: "Poly Survivor"
 date: 2026-10-30 14:30:00 +0900
+category: Projects
 lang: ko
 ---
 

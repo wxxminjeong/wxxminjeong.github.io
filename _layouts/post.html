@@ -7,6 +7,10 @@ layout: default
 <div class="ArticleText" id="content"{% if page.lang %} lang="{{ page.lang }}"{% endif %}>
 <div class="FeatureByline">
 By <b>{{ site.author }}</b><br>{% include date.html date=page.date %}
+{%- if page.category %}
+<hr>
+<a href="{{ '/' | append: page.category | slugify | append: '/' | relative_url }}">{{ page.category }}</a>
+{%- endif %}
 </div>
 {{ content }}
 <br clear="all">
