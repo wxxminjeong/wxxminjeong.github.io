@@ -1,0 +1,9 @@
+{%- comment -%}
+  사용법: {% include date.html date=post.date %}           → October 30, 2026
+          {% include date.html date=post.date time=true %} → Oct 30, 2026 09:00 KST (Fri)
+{%- endcomment -%}
+{%- if include.time -%}
+{{ include.date | date: "%b %-d, %Y %H:%M" }} KST ({{ include.date | date: "%a" }})
+{%- else -%}
+{{ include.date | date: "%B %-d, %Y" }}
+{%- endif -%}

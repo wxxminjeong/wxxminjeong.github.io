@@ -1,26 +1,25 @@
 <div id="menu">
-<a class="logo-link" href="{{ '/' | relative_url }}" aria-label="첫 화면으로">
+<a class="logo-link" href="{{ '/' | relative_url }}" aria-label="Front page">
 <img class="logo-img" src="{{ '/assets/img/logo.png' | relative_url }}" width="56" height="56" alt="">
 <span class="logo-text">{{ site.brand.line1 }}<br>{{ site.brand.line2 }}</span>
 <span class="logo-tag">{{ site.brand.tagline }}</span>
 </a>
 <ul class="navmenu">
-<li><b>차례</b>
+<li><b>Contents</b>
 <ul>
-<li><a href="{{ '/' | relative_url }}">첫 화면</a></li>
-<li><a href="{{ '/posts/' | relative_url }}">글 목록</a></li>
-<li><a href="{{ '/tags/' | relative_url }}">분류</a></li>
-<li><a href="{{ '/search/' | relative_url }}">검색</a></li>
-<li><a href="{{ '/guestbook/' | relative_url }}">방명록</a></li>
+<li><a href="{{ '/' | relative_url }}">Front page</a></li>
+<li><a href="{{ '/posts/' | relative_url }}">Archives</a></li>
+<li><a href="{{ '/tags/' | relative_url }}">Tags</a></li>
+<li><a href="{{ '/search/' | relative_url }}">Search</a></li>
 <li><hr></li>
-<li><a href="{{ '/about/' | relative_url }}">자기소개</a></li>
-<li><a href="{{ '/feed.xml' | relative_url }}">RSS</a></li>
+<li><a href="{{ '/about/' | relative_url }}">About</a></li>
+<li><a href="{{ '/feed.xml' | relative_url }}">RSS feed</a></li>
 </ul>
 </li>
 {%- if page.layout == "post" %}
-<li><b>이 글</b>
+<li><b>This article</b>
 <ul>
-<li><a href="{{ '/' | relative_url }}">첫 화면으로 돌아가기</a></li>
+<li><a href="{{ '/' | relative_url }}">Back to the front page</a></li>
 </ul>
 </li>
 {%- endif %}

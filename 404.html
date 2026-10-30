@@ -1,14 +1,14 @@
 ---
-title: 페이지를 찾을 수 없습니다
+title: Page not found
 permalink: /404.html
 sitemap: false
 ---
 <div class="PageHeadline">
-<h1>페이지를 찾을 수 없습니다</h1>
+<h1>Page not found</h1>
 </div>
 <div class="ArticleText" id="content">
-<p class="ErrorMessage">요청하신 주소 <tt id="missing-path"></tt>에는 아무것도 없습니다.</p>
-<p>주소를 다시 확인하시거나, <a href="{{ '/posts/' | relative_url }}">글 목록</a>이나
-<a href="{{ '/search/' | relative_url }}">검색</a>에서 찾아보세요.
+<p class="ErrorMessage">There is nothing at <tt id="missing-path"></tt>.</p>
+<p>Check the address, or look through the <a href="{{ '/posts/' | relative_url }}">archives</a>
+or <a href="{{ '/search/' | relative_url }}">search</a>.
 <script>document.getElementById('missing-path').textContent = location.pathname;</script>
 </div>

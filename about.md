@@ -1,17 +1,17 @@
 ---
 layout: page
-title: 자기소개
+title: About
 permalink: /about/
 ---
 
-안녕하세요, **{{ site.author }}**입니다.
+Hi, I'm **{{ site.author }}**. Thanks for stopping by.
 
-(이 페이지는 아직 쓰는 중입니다. 아래 표의 "작성 예정"을 고쳐서 쓰세요.)
+(This page is still being written. Replace the "TBD" entries below.)
 
 <table class="OddEven">
-<tr><th>닉네임</th><td>{{ site.author }}</td></tr>
-<tr><th>하는 일</th><td>(작성 예정)</td></tr>
-<tr><th>관심 분야</th><td>(작성 예정)</td></tr>
-<tr><th>주로 쓰는 언어</th><td>(작성 예정)</td></tr>
-<tr><th>연락처</th><td><a href="https://github.com/{{ site.github_username }}">GitHub</a></td></tr>
+<tr><th>Handle</th><td>{{ site.author }}</td></tr>
+<tr><th>What I do</th><td>TBD</td></tr>
+<tr><th>Interests</th><td>TBD</td></tr>
+<tr><th>Languages</th><td>TBD</td></tr>
+<tr><th>Contact</th><td><a href="https://github.com/{{ site.github_username }}">GitHub</a></td></tr>
 </table>

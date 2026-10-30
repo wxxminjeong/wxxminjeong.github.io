@@ -1,14 +1,11 @@
 <div class="topnav">
 <form action="{{ '/search/' | relative_url }}" method="get" class="inline">
-<label><b>검색:</b> <input type="text" name="q" size="16"></label>
-<input type="submit" value="찾기">
+<label><b>Search:</b> <input type="text" name="q" size="16"></label>
+<input type="submit" value="Go">
 </form>
 <span class="not-handset"> |
-<form action="{{ '/guestbook/' | relative_url }}" method="get" class="inline">
-<input type="submit" value="방명록">
-</form> |
 <form action="{{ '/feed.xml' | relative_url }}" method="get" class="inline">
-<input type="submit" value="RSS 구독">
+<input type="submit" value="RSS">
 </form>
 </span>
 </div>

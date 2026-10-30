@@ -1,17 +1,17 @@
 ---
-title: "Hello, World! 홈페이지를 열었습니다"
+title: "Hello, World!"
 date: 2026-10-30 09:00:00 +0900
-tags: [공지, 블로그]
+tags: [meta]
 ---
 
-드디어 개발 홈페이지를 열었습니다!
+This blog is finally up and running.
 
-이 글은 첫 글이자 **글쓰기 예시**예요. 마크다운으로 쓴 내용이 어떻게 보이는지 확인용으로 남겨둡니다. 필요 없으면 지워도 됩니다.
+This first post doubles as a **formatting sample**: it shows how Markdown comes out on this site. Delete it whenever you like.
 
-## 코드 블록
+## Code
 
 ```js
-// 모든 것의 시작
+// where it all begins
 function hello(name) {
   const greeting = `Hello, ${name}!`;
   console.log(greeting);
@@ -25,23 +25,23 @@ hello("World");
 bundle exec jekyll serve
 ```
 
-본문 중간에 `inline code`도 쓸 수 있어요.
+Inline `code` works too.
 
-## 목록과 인용
+## Lists and quotes
 
-- 공부하면서 정리한 내용
-- 프로젝트 기록
-- 에러 해결 기록 (a.k.a. 삽질 일지)
+- Notes on things I study
+- Project write-ups
+- Debugging logs
 
-> 시작이 반이다.
+> Well begun is half done.
 
-## 표
+## Tables
 
-| 언어 | 확장자 |
+| Language | Extension |
 |---|---|
 | JavaScript | `.js` |
 | Python | `.py` |
 
-### 작은 제목
+### A smaller heading
 
-[링크는 이렇게](https://github.com/wxxminjeong) 보입니다.
+[Links look like this](https://github.com/wxxminjeong).

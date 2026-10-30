@@ -7,7 +7,7 @@ layout: default
 </div>
 <div class="ArticleText" id="content">
 <div class="FeatureByline">
-By <b>{{ site.author }}</b><br>{% include date-ko.html date=page.date %}
+By <b>{{ site.author }}</b><br>{% include date.html date=page.date %}
 {%- if page.tags.size > 0 %}
 <hr>
 {% for tag in page.tags %}<a href="{{ '/tags/' | relative_url }}#{{ tag | slugify }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}{% endfor %}
@@ -16,16 +16,15 @@ By <b>{{ site.author }}</b><br>{% include date-ko.html date=page.date %}
 {{ content }}
 <br clear="all">
 <div class="yaflex">
-<span>{% if page.previous %}&lt;&lt; 이전 글: <a href="{{ page.previous.url | relative_url }}">{{ page.previous.title | escape }}</a>{% endif %}</span>
+<span>{% if page.previous %}&lt;&lt; Previous: <a href="{{ page.previous.url | relative_url }}">{{ page.previous.title | escape }}</a>{% endif %}</span>
 <span class="grow"></span>
-<span>{% if page.next %}다음 글: <a href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }}</a> &gt;&gt;{% endif %}</span>
+<span>{% if page.next %}Next: <a href="{{ page.next.url | relative_url }}">{{ page.next.title | escape }}</a> &gt;&gt;{% endif %}</span>
 </div>
 <hr width="60%" align="left">
 <form action="https://github.com/{{ site.issues.repo }}/issues/new" method="get" target="_blank">
 <input type="hidden" name="title" value="{{ comment_title | escape }}">
-<input type="submit" value="의견 남기기"> (GitHub 계정이 필요합니다)
+<input type="submit" value="Add a comment"> (requires a GitHub account)
 </form>
 <p><a name="Comments"></a>
-<div data-comments="{{ comment_title | escape }}" data-match="exact" data-order="asc"
-     data-empty="아직 남겨진 의견이 없습니다."></div>
+<div data-comments="{{ comment_title | escape }}" data-empty="No comments yet."></div>
 </div>

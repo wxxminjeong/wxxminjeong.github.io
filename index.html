@@ -2,16 +2,16 @@
 layout: default
 ---
 <div class="PageHeadline">
-<h1>{{ site.title }}에 오신 것을 환영합니다</h1>
+<h1>Welcome to {{ site.title }}</h1>
 </div>
 <div class="ArticleText" id="content">
 <blockquote class="intro" style="margin-top: 0">
 {{ site.description }}
-처음 오셨다면 <a href="{{ '/about/' | relative_url }}">자기소개</a>를 읽어보시고,
-<a href="{{ '/guestbook/' | relative_url }}">방명록</a>에 한 마디 남겨주세요.
+New here? Start with the <a href="{{ '/about/' | relative_url }}">About</a> page,
+or browse the <a href="{{ '/posts/' | relative_url }}">archives</a>.
 </blockquote>
 {%- if site.posts.size == 0 %}
-<p>아직 쓴 글이 없습니다.
+<p>Nothing posted yet.
 {%- endif %}
 {%- for post in site.posts limit: site.front_page_posts %}
 {%- capture comment_title %}{{ site.issues.comment_prefix }} {{ post.title }}{% endcapture %}
@@ -21,11 +21,11 @@ layout: default
 {% include byline.html post=post %}
 {{ post.excerpt }}
 <p>
-<a href="{{ post.url | relative_url }}">전체 글 보기</a>
-(<a href="{{ post.url | relative_url }}#Comments" data-comment-count="{{ comment_title | escape }}">의견</a>)
+<a href="{{ post.url | relative_url }}">Read more</a>
+(<a href="{{ post.url | relative_url }}#Comments" data-comment-count="{{ comment_title | escape }}">comments</a>)
 </div>
 {%- endfor %}
 {%- if site.posts.size > site.front_page_posts %}
-<p><a href="{{ '/posts/' | relative_url }}">--&gt; 지난 글 더 보기</a>
+<p><a href="{{ '/posts/' | relative_url }}">--&gt; Older posts</a>
 {%- endif %}
 </div>

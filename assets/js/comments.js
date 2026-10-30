@@ -1,28 +1,18 @@
 /*
- * 방명록과 글마다 달리는 의견: 이 저장소의 GitHub 이슈를 읽어서 보여줍니다.
- *   - [data-comment-count="제목"] : 그 제목의 이슈 개수를 "의견: N"으로 표시
- *   - [data-comments="제목"]      : 그 제목의 이슈를 의견 상자로 나열
- *       data-match="exact|prefix", data-order="asc|desc", data-empty="..."
- *   - form[data-title-prefix]     : 보낼 때 제목 앞에 머리말을 붙임
+ * 글마다 달리는 댓글: 이 저장소의 GitHub 이슈 중 제목이 "[Comment] 글 제목"인 것을 보여줍니다.
+ *   - [data-comment-count="제목"] : 그 제목의 이슈 개수를 "comments: N"으로 표시 (첫 화면)
+ *   - [data-comments="제목"]      : 그 제목의 이슈를 댓글 상자로 나열 (글 화면)
  */
 (function () {
   'use strict';
 
   var repo = document.body.getAttribute('data-repo');
-  var DAYS = ['일', '월', '화', '수', '목', '금', '토'];
-
-  document.querySelectorAll('form[data-title-prefix]').forEach(function (form) {
-    form.addEventListener('submit', function () {
-      var title = form.querySelector('input[name="title"]');
-      var subject = form.querySelector('[data-subject]');
-      var text = subject ? subject.value.trim() : '';
-      title.value = form.getAttribute('data-title-prefix') + (text ? ' ' + text : '');
-    });
-  });
-
   var counters = document.querySelectorAll('[data-comment-count]');
   var lists = document.querySelectorAll('[data-comments]');
   if (!repo || (!counters.length && !lists.length)) return;
+
+  var MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+  var DAYS = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 
   function el(tag, text) {
     var node = document.createElement(tag);
@@ -36,53 +26,45 @@
     return a;
   }
 
-  // 2026년 10월 30일 (금) 11:00 KST
+  // Oct 30, 2026 11:00 KST (Fri)
   function kst(iso) {
     var d = new Date(Date.parse(iso) + 9 * 3600 * 1000);
     var hh = String(d.getUTCHours()).padStart(2, '0');
     var mm = String(d.getUTCMinutes()).padStart(2, '0');
-    return d.getUTCFullYear() + '년 ' + (d.getUTCMonth() + 1) + '월 ' + d.getUTCDate() + '일 (' +
-      DAYS[d.getUTCDay()] + ') ' + hh + ':' + mm + ' KST';
+    return MONTHS[d.getUTCMonth()] + ' ' + d.getUTCDate() + ', ' + d.getUTCFullYear() + ' ' +
+      hh + ':' + mm + ' KST (' + DAYS[d.getUTCDay()] + ')';
   }
 
-  function matcher(title, mode) {
-    return function (issue) {
-      var t = issue.title.trim();
-      return mode === 'prefix' ? t.indexOf(title) === 0 : t === title;
-    };
+  function matches(title) {
+    return function (issue) { return issue.title.trim() === title; };
   }
 
-  function commentBox(issue, prefix, mode) {
+  function commentBox(issue) {
     var box = el('details');
     box.className = 'CommentBox';
     box.open = true;
 
     var summary = el('summary');
-    var subject = mode === 'prefix' ? issue.title.trim().slice(prefix.length).trim() : '';
-    var title = el('h3', subject || (mode === 'prefix' ? '(제목 없음)' : issue.user.login + ' 님의 의견'));
+    var title = el('h3', 'Comment from ' + issue.user.login);
     title.className = 'CommentTitle';
     summary.appendChild(title);
 
     var poster = el('p');
     poster.className = 'CommentPoster';
-    poster.appendChild(document.createTextNode(kst(issue.created_at) + ', '));
+    poster.appendChild(document.createTextNode('Posted ' + kst(issue.created_at) + ' by '));
     poster.appendChild(el('b', issue.user.login));
-    poster.appendChild(document.createTextNode(' [ '));
-    poster.appendChild(link(issue.html_url, 'GitHub에서 보기'));
-    poster.appendChild(document.createTextNode(' ]'));
+    poster.appendChild(document.createTextNode(' ['));
+    poster.appendChild(link(issue.html_url, 'View on GitHub'));
+    poster.appendChild(document.createTextNode(']'));
     summary.appendChild(poster);
     box.appendChild(summary);
 
-    var text = (issue.body || '').trim() || '(내용 없음)';
+    var text = (issue.body || '').trim() || '(empty)';
     if (text.length > 4000) text = text.slice(0, 4000) + ' ...';
     var body = el('div', text);
     body.className = 'FormattedComment';
     box.appendChild(body);
     return box;
-  }
-
-  function issuesUrl() {
-    return 'https://github.com/' + repo + '/issues';
   }
 
   // GitHub API는 IP당 시간당 60번까지라서, 같은 탭에서는 2분 동안 결과를 재사용한다
@@ -115,30 +97,26 @@
       var issues = all.filter(function (i) { return !i.pull_request; });
 
       counters.forEach(function (node) {
-        var n = issues.filter(matcher(node.getAttribute('data-comment-count'), 'exact')).length;
-        node.textContent = n ? '의견: ' + n : '의견: 없음';
+        var n = issues.filter(matches(node.getAttribute('data-comment-count'))).length;
+        node.textContent = 'comments: ' + (n || 'none');
       });
 
       lists.forEach(function (node) {
-        var prefix = node.getAttribute('data-comments');
-        var mode = node.getAttribute('data-match') || 'exact';
-        var found = issues.filter(matcher(prefix, mode));
-        if (node.getAttribute('data-order') === 'asc') found.reverse();
+        // API는 최신순으로 주므로 뒤집어서 오래된 댓글부터
+        var found = issues.filter(matches(node.getAttribute('data-comments'))).reverse();
         node.textContent = '';
         if (!found.length) {
           node.appendChild(el('p', node.getAttribute('data-empty') || ''));
           return;
         }
-        found.forEach(function (issue) {
-          node.appendChild(commentBox(issue, prefix, mode));
-        });
+        found.forEach(function (issue) { node.appendChild(commentBox(issue)); });
       });
     })
     .catch(function () {
       lists.forEach(function (node) {
         node.textContent = '';
-        var p = el('p', '불러오지 못했습니다. 잠시 후 다시 시도해 주세요. ');
-        p.appendChild(link(issuesUrl(), 'GitHub에서 보기'));
+        var p = el('p', "Couldn't load comments right now. ");
+        p.appendChild(link('https://github.com/' + repo + '/issues', 'View them on GitHub'));
         node.appendChild(p);
       });
     });

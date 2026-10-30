@@ -66,7 +66,7 @@
       });
 
       box.textContent = '';
-      box.appendChild(el('p', '"' + query + '" 검색 결과: ' + hits.length + '개'));
+      box.appendChild(el('p', hits.length + (hits.length === 1 ? ' result' : ' results') + ' for "' + query + '"'));
       hits.forEach(function (p) {
         var item = el('p');
         item.className = 'Feature';
@@ -83,6 +83,6 @@
       });
     })
     .catch(function () {
-      box.textContent = '검색 색인을 불러오지 못했습니다.';
+      box.textContent = "Couldn't load the search index.";
     });
 })();
