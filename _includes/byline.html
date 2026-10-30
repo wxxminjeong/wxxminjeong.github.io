@@ -1,2 +1,2 @@
-{%- comment -%} 첫 화면 글 소개 줄: [tags] Posted 날짜 by 글쓴이 {%- endcomment -%}
-<span class="Smaller">{% if include.post.tags.size > 0 %}[{{ include.post.tags | join: ", " }}] {% endif %}Posted {% include date.html date=include.post.date time=true %} by {{ site.author }}</span>
+{%- comment -%} 첫 화면 글 소개 줄: Posted 날짜 by 글쓴이 {%- endcomment -%}
+<span class="Smaller">Posted {% include date.html date=include.post.date time=true %} by {{ site.author }}</span>

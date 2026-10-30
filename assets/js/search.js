@@ -1,5 +1,5 @@
 /*
- * 검색: /search.json(모든 글의 제목·분류·본문)에서 찾을 말이 모두 들어간 글을 보여줍니다.
+ * 검색: /search.json(모든 글의 제목·본문)에서 찾을 말이 모두 들어간 글을 보여줍니다.
  */
 (function () {
   'use strict';
@@ -61,7 +61,7 @@
     .then(function (res) { return res.json(); })
     .then(function (posts) {
       var hits = posts.filter(function (p) {
-        var hay = (p.title + ' ' + p.tags.join(' ') + ' ' + p.text).toLowerCase();
+        var hay = (p.title + ' ' + p.text).toLowerCase();
         return words.every(function (w) { return hay.indexOf(w) !== -1; });
       });
 

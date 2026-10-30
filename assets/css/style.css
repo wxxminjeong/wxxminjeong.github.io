@@ -200,36 +200,24 @@ div.ArticleText h2 { font-size: 1.1em; }
 div.ArticleText blockquote:not(.intro) { color: var(--quote); }
 div.ArticleText li { margin-bottom: 0.3em; }
 
-div.ArticleText table:not(.Form):not(.IndexEntries) {
+div.ArticleText table:not(.Form) {
   display: block;
   width: fit-content;
   max-width: 100%;
   overflow-x: auto;
   border-collapse: collapse;
 }
-div.ArticleText table:not(.Form):not(.IndexEntries) th,
-div.ArticleText table:not(.Form):not(.IndexEntries) td {
+div.ArticleText table:not(.Form) th,
+div.ArticleText table:not(.Form) td {
   padding: 3px 8px;
   text-align: left;
   vertical-align: top;
   border: 1px solid var(--panel-edge);
 }
-div.ArticleText table:not(.Form):not(.IndexEntries) th { background-color: var(--bar-bg); color: var(--bar-text); }
+div.ArticleText table:not(.Form) th { background-color: var(--bar-bg); color: var(--bar-text); }
 
 div.yaflex { display: flex; gap: 1em; margin-top: 1em; }
 div.yaflex span.grow { flex-grow: 1; }
-
-/* 태그 색인 */
-table.IndexEntries {
-  float: right;
-  margin: 5px;
-  padding: 3px;
-  background-color: var(--panel-bg);
-  border: 1px solid var(--panel-edge);
-}
-table.IndexEntries td:first-child { padding: 1px 5px 1px 1px; }
-p.IndexPrimary { margin: 1em 0 0; font-weight: bold; }
-p.IndexEntry { margin: 0; text-indent: 1cm; }
 
 /* 폼 */
 input, button, textarea { font-family: inherit; font-size: inherit; }
@@ -317,7 +305,6 @@ div.FormattedComment { padding: 0 4px; white-space: pre-wrap; }
   .not-handset { display: none; }
   .maincolumn { padding: 0 0.5em; }
   div.FeatureByline { float: none; max-width: none; margin: 0 0 1em; }
-  table.IndexEntries { float: none; }
   .footer { padding-left: 0; }
   div.yaflex { flex-direction: column; gap: 0.3em; }
 }
