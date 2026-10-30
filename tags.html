@@ -3,23 +3,24 @@ title: 분류
 permalink: /tags/
 ---
 {%- assign tags = site.tags | sort -%}
-<h1>분류</h1>
-
+<div class="PageHeadline">
+<h1>분류별 글 목록</h1>
+</div>
+<div class="ArticleText" id="content">
 {%- if tags.size == 0 %}
-<p>아직 분류가 없습니다.</p>
+<p>아직 분류가 없습니다.
 {%- else %}
-<ul>
+<table class="IndexEntries">
 {%- for tag in tags %}
-<li><a href="#{{ tag[0] | slugify }}">{{ tag[0] }}</a> ({{ tag[1].size }})
+<tr><td><a href="#{{ tag[0] | slugify }}">{{ tag[0] }}</a></td><td>({{ tag[1].size }})</td></tr>
 {%- endfor %}
-</ul>
+</table>
+<p>글에 붙인 분류(태그)별로 모았습니다.
 {%- for tag in tags %}
-
-<h2><a name="{{ tag[0] | slugify }}">{{ tag[0] }}</a></h2>
-<ul>
+<p class="IndexPrimary"><a name="{{ tag[0] | slugify }}">{{ tag[0] }}</a></p>
 {%- for post in tag[1] %}
-<li><tt>{{ post.date | date: "%Y/%m/%d" }}</tt> &nbsp;<a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a>
+<p class="IndexEntry"><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a> ({{ post.date | date: "%Y년 %-m월 %-d일" }})</p>
 {%- endfor %}
-</ul>
 {%- endfor %}
 {%- endif %}
+</div>

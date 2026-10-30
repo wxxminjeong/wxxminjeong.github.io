@@ -3,19 +3,15 @@
 <head>
 {% include head.html %}
 </head>
-<body bgcolor="#C0C0C0" text="#000000" link="#0000EE" vlink="#551A8B" alink="#FF0000">
-{%- if page.url == "/" %}
-
-<center>
-<h1>{{ site.title }}</h1>
-</center>
-{%- endif %}
-
-{% include nav.html %}
-<hr>
-
+<body data-repo="{{ site.issues.repo }}">
+<a name="t"></a>
+<a class="skip" href="#content">본문으로 건너뛰기</a>
+{% include menu.html %}
+{% include topnav.html %}
+<div class="maincolumn">
 {{ content }}
-
+</div>
 {% include footer.html %}
+<script src="{{ '/assets/js/comments.js' | relative_url }}" defer></script>
 </body>
 </html>

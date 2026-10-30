@@ -1,28 +1,31 @@
 ---
 layout: default
 ---
-<p>제 홈페이지에 오신 것을 환영합니다!
+<div class="PageHeadline">
+<h1>{{ site.title }}에 오신 것을 환영합니다</h1>
+</div>
+<div class="ArticleText" id="content">
+<blockquote class="intro" style="margin-top: 0">
 {{ site.description }}
-다녀가신 김에 <a href="{{ '/guestbook/' | relative_url }}">방명록</a>에 한 마디 남겨주시면 고맙겠습니다.</p>
-
-<h2>최근에 쓴 글</h2>
-
+처음 오셨다면 <a href="{{ '/about/' | relative_url }}">자기소개</a>를 읽어보시고,
+<a href="{{ '/guestbook/' | relative_url }}">방명록</a>에 한 마디 남겨주세요.
+</blockquote>
 {%- if site.posts.size == 0 %}
-<p>아직 쓴 글이 없습니다.</p>
-{%- else %}
-<dl>
-{%- assign last_day = "" -%}
-{%- for post in site.posts limit: 7 -%}
-{%- assign day = post.date | date: "%Y%m%d" -%}
-{%- if day != last_day %}
-<dt><b>{% include date-ko.html date=post.date %}</b>
-{%- assign last_day = day -%}
+<p>아직 쓴 글이 없습니다.
 {%- endif %}
-<dd><img src="{{ '/assets/img/redball.gif' | relative_url }}" width="13" height="13" alt="*">
-<a href="{{ post.url | relative_url }}"><b>{{ post.title | escape }}</b></a>{% include new.html date=post.date %}<br>
-{{ post.excerpt | strip_html | strip | truncate: 140 }}
-{%- endfor %}
-</dl>
-{%- endif %}
+{%- for post in site.posts limit: site.front_page_posts %}
+{%- capture comment_title %}{{ site.issues.comment_prefix }} {{ post.title }}{% endcapture %}
 
-<p><a href="{{ '/posts/' | relative_url }}">지난 글 모두 보기...</a></p>
+<h2 class="Headline">{{ post.title | escape }}</h2>
+<div class="BlurbListing">
+{% include byline.html post=post %}
+{{ post.excerpt }}
+<p>
+<a href="{{ post.url | relative_url }}">전체 글 보기</a>
+(<a href="{{ post.url | relative_url }}#Comments" data-comment-count="{{ comment_title | escape }}">의견</a>)
+</div>
+{%- endfor %}
+{%- if site.posts.size > site.front_page_posts %}
+<p><a href="{{ '/posts/' | relative_url }}">--&gt; 지난 글 더 보기</a>
+{%- endif %}
+</div>

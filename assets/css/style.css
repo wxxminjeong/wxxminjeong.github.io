@@ -1,61 +1,318 @@
 /*
- * 넷스케이프 기본 모양(회색 배경, 파란 밑줄 링크 등)은
- * HTML 속성(<body bgcolor=...>)으로 냈습니다.
- * 여기에는 요즘 화면에서 읽기 위해 꼭 필요한 것만 적습니다.
+ * LWN.net의 틀을 본떠 만든 스타일
+ * - 왼쪽 회색 메뉴, 위쪽 둥근 회색 막대, 주황색 제목 띠, 명조 본문
  */
 
+:root {
+  --page-bg: #ffffff;
+  --left-bg: #f0f0f0;
+  --headline-bg: #ffcc99;
+  --form-bg: #eeeeee;
+  --old-bg: #cccccc;
+  --text: #000000;
+  --link: darkblue;
+  --vlink: #444444;
+  --quote: darkred;
+  --logo: green;
+  --button: #ffddaa;
+  --button-hover: #ffcc99;
+  --error: red;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --page-bg: #000000;
+    --left-bg: #333333;
+    --headline-bg: #443333;
+    --form-bg: #333333;
+    --old-bg: #333333;
+    --text: #ffffff;
+    --link: lightblue;
+    --vlink: #bbbbbb;
+    --quote: pink;
+    --logo: lightgreen;
+    --button: #775566;
+    --button-hover: #997788;
+    --error: #ff6666;
+  }
+}
+
+/* ---------- 기본 ---------- */
 body {
-  max-width: 46em;
+  margin: 0;
+  padding: 0;
+  color: var(--text);
+  background: var(--page-bg);
   font-family: "Times New Roman", Times, Batang, "바탕", AppleMyungjo, serif;
   line-height: 1.35;
   word-break: keep-all;
   overflow-wrap: break-word;
 }
 
-pre, code, tt, kbd {
-  font-family: "Courier New", Courier, GulimChe, "굴림체", monospace;
-  font-size: 13px;
-}
-pre { overflow-x: auto; line-height: 1.25; }
+a { text-decoration: underline; }
+a:link { color: var(--link); }
+a:visited { color: var(--vlink); }
+a:hover { color: var(--link); background-color: var(--form-bg); }
+a:visited:hover { color: var(--vlink); }
+a[name] { color: inherit; background: none; text-decoration: none; }
+
+h1 { margin: 0 0 5px; padding: 0; }
+h2 { margin: 20px 0 5px; padding: 0; }
+h3 { margin: 0 0 5px; padding: 0; }
+
+pre { overflow-x: auto; }
+pre, code, tt, kbd { font-family: monospace; }
+tt, code { background-color: var(--form-bg); }
+pre code { display: block; background-color: var(--page-bg); }
 
 img { max-width: 100%; height: auto; }
 
-/* 마크다운 표와 <table border="1">을 넷스케이프 회색 배경 위의 입체 테두리처럼 */
-table:not([border]),
-table[border="1"] {
-  border: 1px solid;
-  border-color: #FFFFFF #808080 #808080 #FFFFFF;
-  border-spacing: 2px;
-}
-table:not([border]) th, table:not([border]) td,
-table[border="1"] th, table[border="1"] td {
-  border: 1px solid;
-  border-color: #808080 #FFFFFF #FFFFFF #808080;
-}
-table:not([border]) th, table:not([border]) td { padding: 2px 6px; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 11em; top: 0.5em; z-index: 30; background: var(--page-bg); padding: 2px 6px; }
 
-/* 윈도우 기본 입력창·버튼 */
-textarea, input[type="text"] {
-  max-width: 100%;
-  font-family: "Courier New", Courier, GulimChe, "굴림체", monospace;
-  font-size: 13px;
-  background: #FFFFFF;
-  border: 2px solid;
-  border-color: #808080 #FFFFFF #FFFFFF #808080;
-}
-input[type="submit"], input[type="reset"] {
-  padding: 2px 10px;
-  font: 13px Arial, Helvetica, sans-serif;
-  color: #000000;
-  background: #C0C0C0;
-  border: 2px solid;
-  border-color: #FFFFFF #000000 #000000 #FFFFFF;
-  box-shadow: inset -1px -1px #808080;
-}
-input[type="submit"]:active, input[type="reset"]:active {
-  border-color: #000000 #FFFFFF #FFFFFF #000000;
-  box-shadow: inset 1px 1px #808080;
+/* ---------- 왼쪽 메뉴 ---------- */
+#menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 9.6em;
+  padding: 0 0.2em;
+  overflow-y: auto;
+  background: var(--left-bg);
+  z-index: 20;
 }
 
-/* 방명록 본문은 쓴 그대로 줄바꿈 */
-.gb-body { white-space: pre-wrap; }
+.logo-link {
+  position: relative;
+  display: block;
+  height: 110px;
+  text-decoration: none;
+}
+.logo-link:hover { background: none; }
+.logo-img {
+  position: absolute;
+  top: 8px;
+  left: 4px;
+  width: 56px;
+  height: 56px;
+  image-rendering: pixelated;
+}
+.logo-text {
+  position: absolute;
+  top: 10px;
+  left: 66px;
+  color: var(--logo);
+  font: bold 180%/1 sans-serif;
+}
+.logo-tag {
+  position: absolute;
+  top: 78px;
+  left: 4px;
+  color: var(--logo);
+  font: 80% sans-serif;
+}
+
+ul.navmenu { list-style: none; margin: 0; padding: 0; }
+.navmenu > li { margin: 0.5em 0 0 0.1em; }
+.navmenu ul { list-style: none; margin: 0; padding: 0; }
+.navmenu ul li { margin: 0.1em 0 0 0.9em; text-indent: -0.4em; line-height: 1.2; }
+.navmenu a { text-decoration: none; }
+.navmenu a:hover { text-decoration: underline; }
+.navmenu a:visited { color: var(--link); }
+.navmenu hr { margin: 0.5em 0.5em 0.5em 0; }
+
+/* ---------- 위쪽 막대 ---------- */
+.topnav {
+  margin: 0.5em 0.5em 0 10.5em;
+  padding: 0.3em 0.5em;
+  background: var(--left-bg);
+  border-radius: 0.8em;
+}
+form.inline { display: inline; }
+
+/* ---------- 본문 틀 ---------- */
+.maincolumn { padding: 0 2em 0 12em; }
+
+div.PageHeadline {
+  max-width: 65em;
+  margin: 1em 0 2em;
+  text-align: center;
+}
+div.PageHeadline h1 { margin-bottom: 0.2em; }
+
+div.ArticleText {
+  max-width: 65em;
+  padding: 0 2px 0 0.5em;
+}
+
+.Smaller { font-size: small; }
+.ReallySmall { font-size: x-small; }
+
+/* 첫 화면 글 제목 띠 */
+h2.Headline {
+  padding-left: 6px;
+  background-color: var(--headline-bg);
+  font-size: larger;
+  font-weight: bold;
+  border-radius: 0.5em;
+}
+div.BlurbListing { padding-left: 6px; }
+
+h2.Cat2HL {
+  margin-left: -0.3em;
+  margin-bottom: 0.3em;
+  padding-left: 0.3em;
+  background-color: var(--headline-bg);
+  font-weight: bold;
+  border-radius: 0.5em;
+}
+
+p.Feature { margin: 0 0 2px 1em; text-indent: -1em; }
+
+/* 글 본문 */
+div.FeatureByline {
+  float: left;
+  max-width: 20em;
+  margin: 2px 8px 2px 0;
+  padding: 0 25px 5px 5px;
+  background-color: var(--form-bg);
+}
+div.FeatureByline hr { width: 40%; }
+
+div.ArticleText h2,
+div.ArticleText h3,
+div.ArticleText h4 { margin: 1.2em 0 0.4em; font-size: 1em; font-weight: bold; }
+div.ArticleText h2 { font-size: 1.1em; }
+div.PageHeadline h1 { font-size: 2em; }
+
+div.ArticleText blockquote:not(.intro) { color: var(--quote); }
+div.ArticleText li { margin-bottom: 0.3em; }
+
+div.ArticleText table:not(.Form):not(.IndexEntries) {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+div.ArticleText table:not(.Form):not(.IndexEntries) th,
+div.ArticleText table:not(.Form):not(.IndexEntries) td { padding: 3px 8px; text-align: left; vertical-align: top; }
+div.ArticleText table:not(.Form):not(.IndexEntries) tr:nth-child(odd) { background-color: var(--form-bg); }
+
+div.yaflex { display: flex; gap: 1em; margin-top: 1em; }
+div.yaflex span.grow { flex-grow: 1; }
+
+/* 분류 색인 */
+table.IndexEntries {
+  float: right;
+  margin: 5px;
+  padding: 3px;
+  background-color: var(--form-bg);
+}
+table.IndexEntries td:first-child { padding: 1px 5px 1px 1px; }
+p.IndexPrimary { margin: 1em 0 0; font-weight: bold; }
+p.IndexEntry { margin: 0; text-indent: 1cm; }
+
+/* 폼 */
+input, button, textarea { font-family: inherit; font-size: inherit; }
+input[type="text"], textarea {
+  padding: 3px;
+  color: var(--text);
+  background: var(--page-bg);
+  border-radius: 0.5em;
+}
+textarea:focus { border-color: var(--link); }
+input[type="submit"], button {
+  padding: 3px;
+  color: var(--text);
+  background-color: var(--button);
+  border-radius: 0.5em;
+}
+input[type="submit"]:hover, button:hover { background-color: var(--button-hover); }
+
+.Form { padding: 3px; background-color: var(--form-bg); }
+table.Form th { text-align: left; }
+table.Form td { padding: 2px 5px; }
+
+.wide-form {
+  width: 95%;
+  margin: 0.1em 0.5em 0.1em 0.1em;
+  padding: 0.2em 0.5em;
+  background-color: var(--form-bg);
+  border-radius: 0.5em;
+}
+.comment-title, .comment-body { width: 98%; box-sizing: border-box; }
+
+p.ErrorMessage {
+  margin: 0 1cm;
+  color: var(--error);
+  font-size: large;
+  font-weight: bold;
+}
+
+/* 검색 결과 */
+span.SearchMatch { font-weight: bold; text-decoration: underline; }
+
+/* ---------- 의견 / 방명록 ---------- */
+details.CommentBox {
+  max-width: 65em;
+  margin-top: 1em;
+  padding-left: 8px;
+  border-left: thin solid var(--headline-bg);
+}
+h3.CommentTitle {
+  display: inline-block;
+  width: 100%;
+  margin: 0 0 5px;
+  padding-left: 3px;
+  background-color: var(--headline-bg);
+  border-radius: 0 2em 2em 0;
+  box-sizing: border-box;
+}
+details > summary { list-style: none; opacity: 0.5; cursor: zoom-in; }
+details[open] > summary { opacity: 1; cursor: zoom-out; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary .CommentTitle::before { content: "[+]"; margin-right: 4px; }
+details[open] > summary .CommentTitle::before { content: "[–]"; }
+p.CommentPoster { margin-top: 0; }
+div.FormattedComment { padding: 0 4px; white-space: pre-wrap; }
+
+/* ---------- 바닥글 ---------- */
+.footer {
+  clear: both;
+  margin: 2em 0 1em;
+  padding-left: 10em;
+  text-align: center;
+  font-size: x-small;
+}
+
+/* ---------- 좁은 화면 ---------- */
+@media (max-width: 48em) {
+  #menu {
+    position: static;
+    width: auto;
+    padding: 0.4em 0.5em;
+  }
+  .logo-link { display: flex; align-items: center; gap: 0.4em; height: auto; }
+  .logo-img, .logo-text, .logo-tag { position: static; }
+  .logo-img { width: 32px; height: 32px; }
+  .logo-text { font-size: 140%; }
+  .logo-text br { display: none; }
+  .logo-tag { align-self: flex-end; }
+  .navmenu > li { margin: 0.3em 0 0; }
+  .navmenu > li > b { display: none; }
+  .navmenu ul li { display: inline-block; margin: 0.2em 0.6em 0 0; text-indent: 0; }
+  .navmenu ul li:has(hr) { display: none; }
+  .navmenu > li + li { display: none; }
+  .topnav { margin: 0.5em; }
+  .not-handset { display: none; }
+  .maincolumn { padding: 0 0.5em; }
+  div.FeatureByline { float: none; max-width: none; margin: 0 0 1em; }
+  table.IndexEntries { float: none; }
+  .footer { padding-left: 0; }
+  div.yaflex { flex-direction: column; gap: 0.3em; }
+}
+
+@media print {
+  #menu, .topnav, form { display: none; }
+  .maincolumn { padding: 0; }
+  .footer { padding-left: 0; }
+}

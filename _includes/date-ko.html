@@ -1,3 +1,4 @@
+{%- comment -%} 사용법: {% include date-ko.html date=post.date time=true %} → 2026년 10월 30일 (금) 09:00 KST {%- endcomment -%}
 {%- assign _days = "일,월,화,수,목,금,토" | split: "," -%}
 {%- assign _wd = include.date | date: "%w" | plus: 0 -%}
-{{- include.date | date: "%Y년 %-m월 %-d일" }} ({{ _days[_wd] }})
+{{- include.date | date: "%Y년 %-m월 %-d일" }} ({{ _days[_wd] }}){% if include.time %} {{ include.date | date: "%H:%M" }} KST{% endif -%}

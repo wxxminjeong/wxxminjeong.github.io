@@ -1,0 +1,18 @@
+---
+title: 검색
+permalink: /search/
+---
+<div class="PageHeadline">
+<h1>검색</h1>
+</div>
+<div class="ArticleText" id="content">
+<form action="" method="get">
+<table class="Form">
+<tr><th>찾을 말:</th><td><input type="text" name="q" size="40" id="q"> <input type="submit" value="찾기"></td></tr>
+</table>
+</form>
+<div id="search-results" data-index="{{ '/search.json' | relative_url }}">
+<noscript><p>검색하려면 자바스크립트를 켜 주세요.</noscript>
+</div>
+</div>
+<script src="{{ '/assets/js/search.js' | relative_url }}" defer></script>

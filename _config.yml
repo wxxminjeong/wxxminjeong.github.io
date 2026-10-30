@@ -3,8 +3,8 @@
 #  고친 뒤에는 로컬 서버(jekyll serve)를 다시 켜야 반영됩니다.
 # ==========================================================
 
-title: wxxminjeong의 개발 홈페이지
-description: 공부한 것, 만든 것, 삽질한 것을 적어두는 곳입니다.
+title: wxxminjeong의 개발일지
+description: 공부한 것, 만든 것, 삽질한 것을 적어두는 개발일지입니다.
 author: wxxminjeong
 github_username: wxxminjeong
 url: https://wxxminjeong.github.io
@@ -12,13 +12,20 @@ baseurl: ""
 lang: ko_KR
 timezone: Asia/Seoul
 
-# 방명록은 이 저장소의 GitHub Issues를 사용합니다
-guestbook:
-  repo: wxxminjeong/wxxminjeong.github.io
-  title_prefix: "[방명록]"
+# 왼쪽 위 로고 글씨
+brand:
+  line1: 개발
+  line2: 일지
+  tagline: by wxxminjeong
 
-# 이 기간(일) 안에 쓴 글에는 NEW 표시가 붙습니다
-new_days: 14
+# 첫 화면에 보일 글 개수
+front_page_posts: 10
+
+# 방명록과 글마다 달리는 의견은 이 저장소의 GitHub Issues를 사용합니다
+issues:
+  repo: wxxminjeong/wxxminjeong.github.io
+  guestbook_prefix: "[방명록]"
+  comment_prefix: "[의견]"
 
 # ----------------------------------------------------------
 #  빌드 설정 (보통은 건드리지 않아도 됩니다)
@@ -30,7 +37,7 @@ kramdown:
   input: GFM
   hard_wrap: false
   syntax_highlighter_opts:
-    disable: true   # 그 시절처럼 코드는 색 없이 <pre>로
+    disable: true   # 코드는 색 없이 <pre>로
 
 plugins:
   - jekyll-feed
